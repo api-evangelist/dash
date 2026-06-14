@@ -1,0 +1,113 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Dash
+providerId: dash
+created: '2026-06-14'
+modified: '2026-06-14'
+reconciled: true
+tags:
+  - FinOps
+  - FOCUS
+  - Cryptocurrency
+  - Dash
+  - Blockchain
+  - Open Source
+description: >-
+  FOCUS-aligned FinOps view of Dash API consumption. The Insight REST and WebSocket API and the
+  Dash Platform DAPI are free open-source services — there are no API subscription fees. Billable
+  costs arise from two sources: (1) Dash network transaction fees paid in DASH when broadcasting
+  Core transactions or Platform state transitions, and (2) infrastructure costs when self-hosting
+  dashcore-node + insight-api. All cost telemetry must be reconstructed from on-chain data (DASH
+  spent on fees) and cloud infrastructure invoices for self-hosted nodes.
+sources:
+  - https://docs.dash.org/en/stable/developers/insight.html
+  - https://docs.dash.org/projects/platform/en/stable/docs/explanations/dapi.html
+  - https://github.com/dashpay/insight-api
+  - https://www.dash.org
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: Dash Core Group / Community
+serviceCategory: Cryptocurrency Network & Data APIs
+billingModel:
+  pricingCategory: Network Fee (variable) + Infrastructure (self-hosted)
+  billingFrequency: Per-transaction (network fees); Monthly (infrastructure)
+  billingCurrency: DASH (network fees); USD (infrastructure)
+  chargeCategories:
+    - Usage
+    - Tax
+    - Adjustment
+focusColumns:
+  ServiceName: Dash
+  ServiceCategory: Cryptocurrency Network & Data APIs
+  ServiceSubcategory: Blockchain Query & Broadcast
+  ProviderName: Dash Core Group / Community
+  PublisherName: Dash Core Group
+  InvoiceIssuerName: varies (infrastructure provider for self-hosted)
+  BillingCurrency: DASH / USD
+meters:
+  - name: core_transactions_broadcast
+    unit: transaction
+    aggregation: count
+    dimensions:
+      - tx_type
+      - is_instant_send
+  - name: core_transaction_fees
+    unit: DASH
+    aggregation: sum
+    dimensions:
+      - tx_type
+      - is_instant_send
+  - name: platform_state_transitions
+    unit: state_transition
+    aggregation: count
+    dimensions:
+      - transition_type
+  - name: platform_state_transition_fees
+    unit: credits
+    aggregation: sum
+    dimensions:
+      - transition_type
+  - name: insight_api_requests
+    unit: request
+    aggregation: count
+    dimensions:
+      - endpoint_group
+      - network
+  - name: self_hosted_node_compute
+    unit: vCPU_hour
+    aggregation: sum
+    dimensions:
+      - cloud_provider
+      - region
+  - name: self_hosted_node_storage
+    unit: GB_month
+    aggregation: sum
+    dimensions:
+      - cloud_provider
+      - region
+principles:
+  - name: Visibility
+    description: >-
+      Track all DASH spent on transaction fees by querying the Insight API for broadcasts and
+      parsing fee fields. For self-hosted nodes, pull infrastructure invoices monthly from the
+      cloud provider and tag costs by environment (mainnet vs. testnet).
+  - name: Allocation
+    description: >-
+      Assign a distinct sending address or address prefix per workload to attribute on-chain fees
+      by team or application. Tag cloud instances with environment=mainnet|testnet and
+      component=dashcore-node|insight-api for infrastructure chargeback.
+  - name: Optimization
+    description: >-
+      Minimize DASH fees by batching smaller payments and avoiding unnecessary InstantSend for
+      non-time-sensitive transactions. Right-size node infrastructure — dashcore-node requires
+      substantial disk I/O; use NVMe storage and scale compute to match sync workload only.
+  - name: Accountability
+    description: >-
+      Monthly reconciliation should compare DASH fee spend (pulled from on-chain data) against
+      team budgets expressed in USD equivalent. Track DASH/USD rate at time of broadcast for
+      accurate USD cost attribution.

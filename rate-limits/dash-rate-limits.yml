@@ -1,0 +1,74 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Dash
+providerId: dash
+created: '2026-06-14'
+modified: '2026-06-14'
+reconciled: true
+tags:
+  - Rate Limiting
+  - Cryptocurrency
+  - Dash
+  - Blockchain
+  - Open Source
+description: >-
+  The Dash Insight API and DAPI are open-source, self-hosted or community-operated services with no
+  formally published rate limit policy. Public instances at insight.dash.org are operated on a
+  best-effort basis by Dash Core Group; high-volume consumers are encouraged to run their own
+  Insight node. The DAPI is decentralized — requests are routed through masternode quorums, so
+  practical throughput is determined by the network topology rather than a single rate-limit gate.
+  Self-hosted Insight instances can apply nginx or application-level throttling at the operator's
+  discretion.
+sources:
+  - https://docs.dash.org/en/stable/developers/insight.html
+  - https://github.com/dashpay/insight-api
+  - https://docs.dash.org/projects/platform/en/stable/docs/explanations/dapi.html
+responseCodes:
+  throttled: 429
+  serverError: 500
+limits:
+  - name: Insight REST API — public instance (insight.dash.org)
+    scope: IP
+    metric: requests_per_period
+    limit: unspecified (best-effort community instance)
+    notes: >-
+      No published numeric cap. High-volume integrations should self-host dashcore-node +
+      insight-api. Install via npm on Ubuntu following docs.dash.org/en/stable/developers/insight.html.
+  - name: Insight WebSocket — public instance
+    scope: connection
+    metric: concurrent_connections
+    limit: unspecified
+    notes: >-
+      socket.io rooms: inv, sync, and per-address rooms. Subscribe to tx, txlock, block, and
+      status events. High-frequency consumers should run a local node.
+  - name: Dash Platform DAPI — gRPC endpoints
+    scope: network
+    metric: requests_per_period
+    limit: decentralized (per-masternode quorum)
+    notes: >-
+      Requests are load-balanced across masternode quorums. No single-key or single-IP cap is
+      published. Rate limiting is effectively enforced by the masternode set's aggregate capacity.
+  - name: Testnet Insight API (testnet-insight.dash.org)
+    scope: IP
+    metric: requests_per_period
+    limit: unspecified (best-effort testnet instance)
+    notes: >-
+      Intended for development and testing only; may have lower availability than mainnet.
+policies:
+  - name: Self-hosting recommended for production
+    description: >-
+      Dash Core Group recommends that production applications run their own dashcore-node +
+      insight-api stack rather than relying on the community-operated public instance.
+  - name: Use WebSocket for real-time data
+    description: >-
+      Subscribe to socket.io events (block, tx, txlock) instead of polling REST endpoints to
+      reduce load on shared infrastructure and achieve lower latency.
+  - name: Testnet for integration testing
+    description: >-
+      Use testnet-insight.dash.org and the Dash testnet DAPI seed nodes for all development
+      and integration testing before targeting mainnet.
+  - name: DAPI decentralized load balancing
+    description: >-
+      The dapi-client SDK automatically discovers and rotates across masternode quorum members.
+      Use the official SDK rather than hard-coding seed addresses.

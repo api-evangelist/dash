@@ -1,0 +1,102 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Dash
+providerId: dash
+created: '2026-06-14'
+modified: '2026-06-14'
+reconciled: true
+tags:
+  - Cryptocurrency
+  - Dash
+  - Blockchain
+  - Open Source
+description: >-
+  Dash's developer APIs are entirely open-source and free to use. The Insight REST and WebSocket API
+  (dashpay/insight-api) is self-hostable with no license fees. Public instances run by Dash Core Group
+  at insight.dash.org are available at no charge with no API key required. The Dash Platform DAPI
+  endpoints are accessed via the decentralized masternode network — no subscription, key, or fee is
+  required for read access. Broadcast transactions and state transitions are subject to standard
+  Dash network fees (paid in DASH to miners and masternodes), not to any API provider.
+sources:
+  - https://docs.dash.org/en/stable/developers/insight.html
+  - https://docs.dash.org/projects/platform/en/stable/docs/explanations/dapi.html
+  - https://github.com/dashpay/insight-api
+  - https://www.dash.org
+plans:
+
+  - id: dash-insight-public
+    name: Insight REST API (Free / Self-Hosted)
+    type: free
+    description: >-
+      Free, key-less access to the Dash Insight REST and WebSocket API. Public instances at
+      insight.dash.org (mainnet) and testnet-insight.dash.org (testnet) are operated by
+      Dash Core Group at no charge. Self-hosted instances carry only infrastructure costs.
+    entries:
+      - label: API requests
+        name: api_requests
+        type: metered
+        metric: request
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: WebSocket connections
+        name: ws_connections
+        type: metered
+        metric: connection
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+    elements:
+      - name: Block queries (by hash, height, raw hex)
+      - name: Transaction queries (by txid, raw hex)
+      - name: Address balance and UTXO queries
+      - name: Multi-address transaction history
+      - name: Transaction broadcast (standard and InstantSend)
+      - name: Governance objects (sporks, proposals, votes)
+      - name: Network status and fee estimation
+      - name: Real-time WebSocket streams (blocks, txs, InstantSend locks, address activity)
+
+  - id: dash-dapi-public
+    name: Dash Platform DAPI (Free / Decentralized)
+    type: free
+    description: >-
+      Free, decentralized access to Dash Platform gRPC and JSON-RPC endpoints via the masternode
+      network. No API key is required. Network transaction fees (in DASH) apply when broadcasting
+      Core transactions or Platform state transitions; read endpoints are free.
+    entries:
+      - label: gRPC read calls
+        name: grpc_reads
+        type: metered
+        metric: request
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: '0.00'
+        userMultiplied: false
+      - label: Broadcast transaction (network fee)
+        name: broadcast_tx_fee
+        type: metered
+        metric: transaction
+        limit: -1
+        timeFrame: usage
+        geo: global
+        unit: 1
+        price: standard Dash network fee (in DASH)
+        userMultiplied: false
+    elements:
+      - name: Core gRPC (block height, blockchain status, transactions, ChainLock streams)
+      - name: Core JSON-RPC (getBestBlockHash, getBlockHash)
+      - name: Platform identities (get, balance, keys, nonce)
+      - name: Platform data contracts and documents
+      - name: Platform state transition broadcast
+      - name: Platform tokens (balances, supply, distribution)
+      - name: Platform governance vote polls
+      - name: Masternode list streaming

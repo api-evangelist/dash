@@ -1,0 +1,165 @@
+aid: dash
+name: Dash
+description: >-
+  Dash is a peer-to-peer cryptocurrency network offering fast, low-cost payments with InstantSend,
+  privacy via CoinJoin mixing, and decentralized governance through Masternodes. Developers can query
+  blocks, transactions, addresses, UTXOs, governance objects, and real-time network events through
+  the open-source Insight REST and WebSocket API, and can access Dash Platform layer-2 (DashPay
+  identity, data contracts, documents, tokens) through the Decentralized API (DAPI) over gRPC and JSON-RPC.
+url: https://docs.dash.org/en/stable/developers/
+specificationVersion: '0.19'
+created: '2026-06-14'
+modified: '2026-06-14'
+x-source: manual-research
+x-category: Cryptocurrency
+x-type: open-source
+x-tier: 2
+tags:
+  - Cryptocurrency
+  - Blockchain
+  - Dash
+  - InstantSend
+  - Masternode
+  - DashPay
+  - Governance
+  - Payments
+apis:
+  - name: Dash Insight REST API
+    description: >-
+      Open-source REST and WebSocket API for querying the Dash Core (layer 1) blockchain. Provides
+      endpoints for blocks (by hash or height), raw blocks, transactions (by txid), raw transactions,
+      addresses (balance, total received/sent, UTXOs, transaction history), multi-address UTXO and
+      transaction queries, transaction broadcast (standard and InstantSend), Dash governance objects
+      (sporks, budget proposals, masternode votes), and network status. Real-time events (new blocks,
+      new transactions, InstantSend locks) are streamed over socket.io WebSockets.
+    humanURL: https://docs.dash.org/en/stable/developers/insight.html
+    baseURL: https://insight.dash.org/insight-api
+    tags:
+      - Cryptocurrency
+      - Dash
+      - Blockchain
+      - Block Explorer
+      - Transactions
+      - Addresses
+      - InstantSend
+      - Governance
+      - WebSocket
+    properties:
+      - type: Documentation
+        url: https://docs.dash.org/en/stable/developers/insight.html
+      - type: GitHubRepository
+        url: https://github.com/dashpay/insight-api
+      - type: BlockExplorer
+        url: https://explorer.dash.org/insight/
+      - type: TestnetAPI
+        url: https://testnet-insight.dash.org/insight-api
+
+  - name: Dash Platform DAPI (Decentralized API)
+    description: >-
+      Decentralized HTTP API exposing gRPC and JSON-RPC endpoints for both Dash Core layer 1 and
+      Dash Platform layer 2 (DashPay). Core gRPC endpoints cover broadcastTransaction, getBestBlockHeight,
+      getBlockchainStatus, getTransaction, and real-time subscriptions (block headers with ChainLocks,
+      masternode list, transactions with proofs). Platform gRPC endpoints cover identities (get, balance,
+      keys, nonce), data contracts and their history, documents, state transition broadcast, governance
+      vote polls, tokens (balances, supply, distribution), and system info (epochs, quorums, protocol
+      version). JSON-RPC exposes getBestBlockHash and getBlockHash. Communication is secured with TLS;
+      responses optionally include cryptographic Merkle proofs.
+    humanURL: https://docs.dash.org/projects/platform/en/stable/docs/explanations/dapi.html
+    baseURL: https://seed-1.networks.dash.org:1443
+    tags:
+      - Cryptocurrency
+      - Dash
+      - DashPay
+      - Platform
+      - gRPC
+      - JSON-RPC
+      - Identities
+      - Data Contracts
+      - Tokens
+      - Governance
+    properties:
+      - type: Documentation
+        url: https://docs.dash.org/projects/platform/en/stable/docs/explanations/dapi.html
+      - type: Documentation
+        title: DAPI Endpoint Reference
+        url: https://docs.dash.org/projects/platform/en/stable/docs/reference/dapi-endpoints.html
+      - type: Documentation
+        title: Core gRPC Endpoints
+        url: https://docs.dash.org/projects/platform/en/stable/docs/reference/dapi-endpoints-core-grpc-endpoints.html
+      - type: Documentation
+        title: Platform gRPC Endpoints
+        url: https://docs.dash.org/projects/platform/en/stable/docs/reference/dapi-endpoints-platform-endpoints.html
+      - type: Documentation
+        title: gRPC Overview
+        url: https://docs.dash.org/projects/platform/en/latest/docs/reference/dapi-endpoints-grpc-overview.html
+      - type: GitHubRepository
+        url: https://github.com/dashpay/platform
+
+common:
+  - type: Website
+    url: https://www.dash.org
+  - type: DeveloperPortal
+    url: https://docs.dash.org/en/stable/developers/
+  - type: PlatformDocumentation
+    url: https://docs.dash.org/projects/platform/en/stable/
+  - type: GitHubOrganization
+    url: https://github.com/dashpay
+  - type: BlockExplorer
+    url: https://explorer.dash.org/insight/
+  - type: Plans
+    url: plans/dash-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/dash-rate-limits.yml
+  - type: FinOps
+    url: finops/dash-finops.yml
+features:
+  - name: Block and Transaction Queries
+    description: Look up any block by hash or height, retrieve raw hex, and fetch full transaction details by txid.
+  - name: Address Analytics
+    description: Query balance, total received, total sent, unconfirmed balance, UTXOs, and full transaction history for one or more addresses.
+  - name: InstantSend Broadcast
+    description: Broadcast standard or InstantSend transactions via POST; InstantSend locks within ~3 seconds.
+  - name: Governance and Budget API
+    description: Read active sporks, list and inspect budget proposals and triggers, retrieve masternode vote tallies, and submit new proposals.
+  - name: Real-Time WebSocket Streaming
+    description: Subscribe to new blocks, unconfirmed transactions, InstantSend locks, and per-address activity via socket.io.
+  - name: DashPay Identity System
+    description: Create and resolve decentralized identities on Dash Platform, query balances, keys, and nonces via DAPI gRPC.
+  - name: Data Contracts and Documents
+    description: Register application data schemas (data contracts) and store structured documents on Dash Platform.
+  - name: Platform Token Support
+    description: Query token balances, total supply, distribution schedules, and direct-purchase prices via DAPI.
+  - name: ChainLock Streaming
+    description: Subscribe to block headers with ChainLock signatures for reorganization-safe confirmations.
+  - name: Masternode List Streaming
+    description: Receive the full masternode list and differential updates as new blocks arrive.
+useCases:
+  - name: Wallet Backends
+    description: Build custodial or non-custodial Dash wallets using address balance, UTXO, and broadcast endpoints.
+  - name: Block Explorer
+    description: Build a full-featured Dash block explorer using the Insight REST API and WebSocket event streams.
+  - name: Payment Processing
+    description: Integrate InstantSend for zero-confirmation Dash payments with sub-5-second settlement finality.
+  - name: DashPay Application
+    description: Build social payment apps on Dash Platform using identities, data contracts, and document storage.
+  - name: Governance Tooling
+    description: Automate budget proposal monitoring, vote tallying, and proposal submission via the governance endpoints.
+  - name: On-Chain Analytics
+    description: Aggregate block, transaction, and address data for research dashboards and compliance reporting.
+integrations:
+  - name: Dash Core Node
+    description: The Insight API is built on dashcore-node and connects directly to a Dash Core full node.
+  - name: socket.io
+    description: Real-time events (blocks, transactions, InstantSend locks) are delivered over socket.io WebSocket rooms.
+  - name: gRPCurl
+    description: DAPI gRPC endpoints can be tested via gRPCurl; client libraries are auto-generated from .proto definitions.
+  - name: CBOR / Base64
+    description: DAPI Platform gRPC data payloads are CBOR-encoded then Base64-encoded before transmission.
+solutions:
+  - name: Dash Core Blockchain Data
+    description: Production-grade REST and WebSocket APIs for the Dash layer-1 blockchain via the Insight stack.
+  - name: Dash Platform Layer 2
+    description: Decentralized application and identity platform (DashPay) accessible over DAPI gRPC/JSON-RPC.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
