@@ -1,0 +1,42 @@
+{
+  "aid": "dash",
+  "name": "Dash",
+  "description": "Blog and content sources for the Dash cryptocurrency developer ecosystem.",
+  "url": "https://www.dash.org/blog/",
+  "created": "2026-06-14",
+  "modified": "2026-06-14",
+  "sources": [
+    {
+      "name": "Dash Blog",
+      "url": "https://www.dash.org/blog/",
+      "type": "blog",
+      "description": "Official Dash project blog covering protocol updates, governance news, ecosystem integrations, and developer announcements.",
+      "fetched": null,
+      "posts": []
+    },
+    {
+      "name": "Dash Platform Blog",
+      "url": "https://www.dash.org/category/platform/",
+      "type": "blog",
+      "description": "Posts focused on Dash Platform (DashPay layer 2), data contracts, identities, and DAPI development.",
+      "fetched": null,
+      "posts": []
+    },
+    {
+      "name": "Dash GitHub Releases - insight-api",
+      "url": "https://github.com/dashpay/insight-api/releases",
+      "type": "releases",
+      "description": "Release notes for the Dash Insight REST/WebSocket API (dashpay/insight-api).",
+      "fetched": null,
+      "posts": []
+    },
+    {
+      "name": "Dash GitHub Releases - platform",
+      "url": "https://github.com/dashpay/platform/releases",
+      "type": "releases",
+      "description": "Release notes for Dash Platform including DAPI, Drive, and SDK updates (dashpay/platform).",
+      "fetched": null,
+      "posts": []
+    }
+  ]
+}

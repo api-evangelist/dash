@@ -1,0 +1,89 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "aid": "https://apis.io/vocab/aid",
+    "humanURL": "https://apis.io/vocab/humanURL",
+    "baseURL": "https://apis.io/vocab/baseURL",
+    "x-category": "https://apis.io/vocab/category",
+    "x-type": "https://apis.io/vocab/type",
+    "x-tier": "https://apis.io/vocab/tier"
+  },
+  "@type": "WebAPI",
+  "@id": "https://apis.io/providers/dash",
+  "aid": "dash",
+  "name": "Dash",
+  "description": "Dash is a peer-to-peer cryptocurrency network offering fast, low-cost payments with InstantSend, privacy via CoinJoin mixing, and decentralized governance through Masternodes. Developers can query blocks, transactions, addresses, UTXOs, governance objects, and real-time network events through the open-source Insight REST and WebSocket API, and can access Dash Platform layer-2 (DashPay identity, data contracts, documents, tokens) through the Decentralized API (DAPI) over gRPC and JSON-RPC.",
+  "url": "https://docs.dash.org/en/stable/developers/",
+  "x-category": "Cryptocurrency",
+  "x-type": "open-source",
+  "x-tier": 2,
+  "dateCreated": "2026-06-14",
+  "dateModified": "2026-06-14",
+  "keywords": [
+    "Cryptocurrency",
+    "Blockchain",
+    "Dash",
+    "InstantSend",
+    "Masternode",
+    "DashPay",
+    "Governance",
+    "Payments"
+  ],
+  "subjectOf": [
+    {
+      "@type": "WebAPI",
+      "name": "Dash Insight REST API",
+      "description": "Open-source REST and WebSocket API for querying the Dash Core (layer 1) blockchain. Provides endpoints for blocks, transactions, addresses, UTXOs, governance objects, and network status. Real-time events streamed over socket.io WebSockets.",
+      "humanURL": "https://docs.dash.org/en/stable/developers/insight.html",
+      "baseURL": "https://insight.dash.org/insight-api",
+      "keywords": [
+        "Cryptocurrency",
+        "Dash",
+        "Blockchain",
+        "Block Explorer",
+        "Transactions",
+        "Addresses",
+        "InstantSend",
+        "Governance",
+        "WebSocket"
+      ],
+      "documentation": "https://docs.dash.org/en/stable/developers/insight.html",
+      "codeRepository": "https://github.com/dashpay/insight-api"
+    },
+    {
+      "@type": "WebAPI",
+      "name": "Dash Platform DAPI (Decentralized API)",
+      "description": "Decentralized HTTP API exposing gRPC and JSON-RPC endpoints for both Dash Core layer 1 and Dash Platform layer 2 (DashPay). Covers identities, data contracts, documents, tokens, governance, and cryptographic Merkle proofs.",
+      "humanURL": "https://docs.dash.org/projects/platform/en/stable/docs/explanations/dapi.html",
+      "baseURL": "https://seed-1.networks.dash.org:1443",
+      "keywords": [
+        "Cryptocurrency",
+        "Dash",
+        "DashPay",
+        "Platform",
+        "gRPC",
+        "JSON-RPC",
+        "Identities",
+        "Data Contracts",
+        "Tokens",
+        "Governance"
+      ],
+      "documentation": "https://docs.dash.org/projects/platform/en/stable/docs/reference/dapi-endpoints.html",
+      "codeRepository": "https://github.com/dashpay/platform"
+    }
+  ],
+  "maintainer": {
+    "@type": "Person",
+    "name": "Kin Lane",
+    "email": "kin@apievangelist.com"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "Dash",
+    "url": "https://www.dash.org",
+    "sameAs": [
+      "https://github.com/dashpay",
+      "https://explorer.dash.org/insight/"
+    ]
+  }
+}
