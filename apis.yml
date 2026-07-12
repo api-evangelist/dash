@@ -96,6 +96,8 @@ apis:
         url: https://github.com/dashpay/platform
 
 common:
+  - type: DomainSecurity
+    url: security/dash-domain-security.yml
   - type: Website
     url: https://www.dash.org
   - type: DeveloperPortal
