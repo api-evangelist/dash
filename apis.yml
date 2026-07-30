@@ -1,4 +1,17 @@
 aid: dash
+accessModel:
+  pricing: free
+  onboarding: open
+  trial: false
+  try_now: true
+  public: true
+  label: Free · Open access
+  confidence: medium
+  source:
+  - plans
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/dash.png
 name: Dash
 description: >-
   Dash is a peer-to-peer cryptocurrency network offering fast, low-cost payments with InstantSend,
