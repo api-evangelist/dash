@@ -20,7 +20,7 @@ description: >-
   the open-source Insight REST and WebSocket API, and can access Dash Platform layer-2 (DashPay
   identity, data contracts, documents, tokens) through the Decentralized API (DAPI) over gRPC and JSON-RPC.
 url: https://docs.dash.org/en/stable/developers/
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 created: '2026-06-14'
 modified: '2026-06-14'
 x-source: manual-research
