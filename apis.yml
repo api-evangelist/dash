@@ -30,6 +30,15 @@ x-tier: 2
 tags:
   - Cryptocurrency
   - Blockchain
+  - DASH
+  - InstantSend
+  - Masternode
+  - DashPay
+  - Governance
+  - Payments
+tags_raw:
+  - Cryptocurrency
+  - Blockchain
   - Dash
   - InstantSend
   - Masternode
@@ -48,6 +57,16 @@ apis:
     humanURL: https://docs.dash.org/en/stable/developers/insight.html
     baseURL: https://insight.dash.org/insight-api
     tags:
+      - Cryptocurrency
+      - DASH
+      - Blockchain
+      - Block Explorer
+      - Transaction
+      - Addresses
+      - InstantSend
+      - Governance
+      - WebSocket
+    tags_raw:
       - Cryptocurrency
       - Dash
       - Blockchain
@@ -80,6 +99,17 @@ apis:
     humanURL: https://docs.dash.org/projects/platform/en/stable/docs/explanations/dapi.html
     baseURL: https://seed-1.networks.dash.org:1443
     tags:
+      - Cryptocurrency
+      - DASH
+      - DashPay
+      - Platform
+      - gRPC
+      - JSON-RPC
+      - Identities
+      - Data Contracts
+      - Tokens
+      - Governance
+    tags_raw:
       - Cryptocurrency
       - Dash
       - DashPay
