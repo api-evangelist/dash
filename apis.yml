@@ -43,7 +43,7 @@ x-tier: 2
 tags:
   - Cryptocurrency
   - Blockchain
-  - Dash
+  - DASH
   - InstantSend
   - Masternode
   - DashPay
@@ -71,7 +71,7 @@ apis:
     baseURL: https://insight.dash.org/insight-api
     tags:
       - Cryptocurrency
-      - Dash
+      - DASH
       - Blockchain
       - Block Explorer
       - Transaction
@@ -113,7 +113,7 @@ apis:
     baseURL: https://seed-1.networks.dash.org:1443
     tags:
       - Cryptocurrency
-      - Dash
+      - DASH
       - DashPay
       - Platform
       - gRPC
