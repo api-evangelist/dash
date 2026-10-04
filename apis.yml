@@ -40,10 +40,13 @@ x-source: manual-research
 x-category: Cryptocurrency
 x-type: open-source
 x-tier: 2
+x-docs-platform: readthedocs
+x-docs-platform-confidence: high
+x-docs-platform-checked: 2026-09-25
 tags:
   - Cryptocurrency
   - Blockchain
-  - DASH
+  - Dash
   - InstantSend
   - Masternode
   - DashPay
@@ -71,7 +74,7 @@ apis:
     baseURL: https://insight.dash.org/insight-api
     tags:
       - Cryptocurrency
-      - DASH
+      - Dash
       - Blockchain
       - Block Explorer
       - Transaction
@@ -113,7 +116,7 @@ apis:
     baseURL: https://seed-1.networks.dash.org:1443
     tags:
       - Cryptocurrency
-      - DASH
+      - Dash
       - DashPay
       - Platform
       - gRPC
