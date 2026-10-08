@@ -105,3 +105,31 @@ plans:
       - name: Platform tokens (balances, supply, distribution)
       - name: Platform governance vote polls
       - name: Masternode list streaming
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - metered
+  units:
+  - object
+  - request
+  - transaction
+  plans:
+  - name: Insight REST API (Free / Self-Hosted)
+    access: free
+    model: metered
+    model_how: derived
+    units:
+    - object
+    - request
+    periods:
+    - per-use
+  - name: Dash Platform DAPI (Free / Decentralized)
+    access: free
+    model: metered
+    model_how: derived
+    units:
+    - request
+    - transaction
+    periods:
+    - per-use
