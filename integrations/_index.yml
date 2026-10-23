@@ -33,3 +33,63 @@
     detected: '2026-10-22'
   status: not-a-workflow
   arazzo: null
+- slug: dash-arch-user-repository-aur
+  label: Arch User Repository (AUR)
+  partner_name: Arch User Repository (AUR)
+  category: official CLI (Arch User Repository (AUR))
+  type: register
+  channel: package-registry
+  evidence: https://aur.archlinux.org/packages/dash-cli
+  source: edge
+  relationship: distribution-channel
+  contract_reference:
+    register: Arch User Repository (AUR) (public package index)
+    spec_file: null
+    packages:
+    - name: dash-cli
+      kind: aur
+      version: 0.17.0.3-1
+      released: '2021-06-17'
+      released_field: AUR LastModified
+      out_of_date: false
+      lapsed: true
+      page: https://aur.archlinux.org/packages/dash-cli
+      upstream: http://www.dash.org/
+      cli: 'AUR description: Dash peer-to-peer network based digital currency (CLI)'
+      repo_leg: domain:dash.org
+      publisher_leg: artifact-github-org:dashpay
+      matched_by: domain
+    - name: dashcore
+      kind: aur
+      version: 0.17.0.3-2
+      released: '2026-06-12'
+      released_field: AUR LastModified
+      out_of_date: false
+      lapsed: false
+      page: https://aur.archlinux.org/packages/dashcore
+      upstream: https://www.dash.org/
+      cli: 'AUR description: Dash Core (DASH, Dashpay, formerly Darkcoin) is an open source, privacy-centric '
+      repo_leg: domain:dash.org
+      publisher_leg: artifact-github-org:dashpay
+      matched_by: domain
+    - name: dashcore-bin
+      kind: aur
+      version: 23.1.8-1
+      released: '2026-08-12'
+      released_field: AUR LastModified
+      out_of_date: false
+      lapsed: false
+      page: https://aur.archlinux.org/packages/dashcore-bin
+      upstream: https://www.dash.org/
+      cli: 'AUR description: Dash Core (DASH, Dashpay, formerly Darkcoin) is an open source, privacy-centric '
+      repo_leg: domain:dash.org
+      publisher_leg: artifact-github-org:dashpay
+      matched_by: domain
+    current: true
+    signal_note: 'the provider''s own command-line tool packaged for Arch Linux (community-maintained PKGBUILD whose
+      upstream and source artifact are the provider''s): distribution, not an integration; lapsed = flagged out-of-date
+      or not updated in 24 months'
+    detected_by: sweep-aur-vendor-cli-packages.py
+    detected: '2026-10-23'
+  status: not-a-workflow
+  arazzo: null
